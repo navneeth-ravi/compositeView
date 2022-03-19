@@ -13,7 +13,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
@@ -24,8 +23,8 @@ import com.example.nav_contacts.data.db.local_db.DatabaseFunctionalities
 import com.example.nav_contacts.data.db.local_db.MyContentProvider
 import com.example.nav_contacts.domain.entity.ContactDataClass
 import com.example.nav_contacts.presentation.adapter.PhoneNumberAdapter
-import com.example.nav_contacts.presentation.custom_view.CallMessageContactDetailLayout
-import com.example.nav_contacts.presentation.handler.CallMessageContactDetailLayoutHandler
+import com.example.nav_contacts.presentation.custom_view.IconWithNameLayout
+import com.example.nav_contacts.presentation.handler.IconWithNameHandler
 import kotlinx.android.synthetic.main.activity_contact_details.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -60,7 +59,7 @@ class ContactDetailsActivity : AppCompatActivity(){
             setResult(RESULT_OK,intent)
             finish()
         }
-        findViewById<CallMessageContactDetailLayout>(R.id.call_layout).setOnClickListener {
+        findViewById<IconWithNameLayout>(R.id.call_layout).setOnClickListener {
             initiatePhoneCall()
         }
         findViewById<View>(R.id.edit_icon).setOnClickListener {
@@ -69,7 +68,7 @@ class ContactDetailsActivity : AppCompatActivity(){
         findViewById<LinearLayout>(R.id.mail_layout).setOnClickListener {
             mailAndMessageNotAvailableToast()
         }
-        findViewById<CallMessageContactDetailLayout>(R.id.message_layout).setOnClickListener {
+        findViewById<IconWithNameLayout>(R.id.message_layout).setOnClickListener {
             mailAndMessageNotAvailableToast()
         }
         star.setOnClickListener {
@@ -79,9 +78,9 @@ class ContactDetailsActivity : AppCompatActivity(){
     }
 
     private fun updateEntireScreenValues(){
-        val callLayout:CallMessageContactDetailLayoutHandler = findViewById(R.id.call_layout)
+        val callLayout:IconWithNameHandler = findViewById(R.id.call_layout)
         callLayout.setImageAndText(R.drawable.ic_baseline_call_24,getString(R.string.call))
-        val messageLayout:CallMessageContactDetailLayoutHandler = findViewById(R.id.message_layout)
+        val messageLayout:IconWithNameHandler = findViewById(R.id.message_layout)
         messageLayout.setImageAndText(R.drawable.ic_baseline_message_24, getString(R.string.message))
         if (contact.favorite) {
             val starIcon:ImageView = findViewById(R.id.star)
