@@ -137,12 +137,12 @@
         android:orientation="horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
-    <com.example.nav_contacts.presentation.custom_view.CallMessageContactDetailLayout
+    <com.example.nav_contacts.presentation.custom_view.IconWithNameLayout
         android:id="@+id/call_layout"
         android:layout_width="0dp"
         android:layout_weight="0.5"
         android:layout_height="wrap_content"/>
-    <com.example.nav_contacts.presentation.custom_view.CallMessageContactDetailLayout
+    <com.example.nav_contacts.presentation.custom_view.IconWithNameLayout
         android:id="@+id/message_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
